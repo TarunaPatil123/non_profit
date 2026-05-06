@@ -203,3 +203,14 @@ standard_portal_menu_items = [
 	{"title": _("Certification"), "route": "/certification",
 	 "reference_doctype": "Certification Application", "role": "Non Profit Portal User"},
 ]
+
+fixtures = [
+    {
+        "doctype": "Property Setter",
+        "filters": [
+            ["doc_type", "in", ["Donor", "Donation"]]
+        ]
+    }
+]
+
+after_migrate = ["frappe.custom.doctype.customize_form.customize_form.sync_customizations"]
